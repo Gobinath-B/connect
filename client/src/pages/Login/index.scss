@@ -31,11 +31,11 @@ body {
 }
 
 .login-btn {
-     width: 300px;
+     width: 100%;
      height: 50px;
      cursor: pointer;
      background-color: $ConnectBlue2;
-     border-radius: 30px;
+     border-radius: 8px;
      outline: none;
      border: none;
      font-family: system-ui;
@@ -111,6 +111,7 @@ body {
      .join-now {
           color: $ConnectBlue1;
           font-family: system-ui;
+
           cursor: pointer;
           font-size: 18px;
      }
