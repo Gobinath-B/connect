@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 // import ConnectLogo from "../../../assets/ConnectLogo.png";
 // import user from "../../../assets/user.png";
-import { AiOutlineHome, AiOutlineUserSwitch, AiOutlineSearch, AiOutlineMessage, AiOutlineBell } from "react-icons/ai";
+import { SiGoogleanalytics, SiGooglehome, SiWebmoney, SiGooglemessages } from "react-icons/si";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BsBriefcase } from "react-icons/bs";
 import "./index.scss";
@@ -16,29 +16,29 @@ import WorkIcon from "../../assets/icons/WorkIcon";
 const navItems = [
      {
           title: "Home",
-          icon: <HomeIcon />,
+          icon: <SiGooglehome size={"20"} />,
           to: "/home",
      },
      {
           title: "Careers",
-          icon: <HomeIcon />,
+          icon: <SiGoogleanalytics size={"20"} />,
           to: "/careers",
      },
      {
           title: "Finance",
-          icon: <HomeIcon />,
+          icon: <SiWebmoney size={"20"} />,
           to: "/finance",
      },
-     {
-          title: "Chats",
-          icon: <HomeIcon />,
-          to: "/chats",
-     },
-     {
-          title: "Emergeny",
-          icon: <HomeIcon />,
-          to: "/emergency",
-     },
+     // {
+     //      title: "Chats",
+     //      icon: <SiGooglemessages />,
+     //      to: "/chats",
+     // },
+     // {
+     //      title: "Emergeny",
+     //      icon: <HomeIcon />,
+     //      to: "/emergency",
+     // },
 ];
 
 export default function Topbar({ currentUser }) {
@@ -129,7 +129,7 @@ export default function Topbar({ currentUser }) {
                                    </NavList>
                               ))}
 
-                              <User onClick={() => openUser({})}>
+                              <User onClick={() => {}}>
                                    <a>
                                         <img
                                              src="/images/user.svg"
@@ -144,12 +144,12 @@ export default function Topbar({ currentUser }) {
                                         </span>
                                    </a>
 
-                                   <SignOut>
+                                   {/* <SignOut>
                                         <a>Sign Out</a>
-                                   </SignOut>
+                                   </SignOut> */}
                               </User>
 
-                              <Work>
+                              {/* <Work>
                                    <a>
                                         <img
                                              src="/images/nav-work.svg"
@@ -163,7 +163,7 @@ export default function Topbar({ currentUser }) {
                                              />
                                         </span>
                                    </a>
-                              </Work>
+                              </Work> */}
                          </NavListWrap>
                     </Nav>
                </Content>

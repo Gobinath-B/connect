@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import { useLocation, useRoutes } from "react-router-dom";
 
-import { ToastContainer } from "react-toastify";
 import Login from "./pages/Login";
 import { routes } from "./routes";
+import "react-toastify/dist/ReactToastify.css";
+import { Toaster } from "react-hot-toast";
 
 function App() {
      const location = useLocation();
@@ -17,7 +18,7 @@ function App() {
      return (
           <>
                {React.cloneElement(element, { key: location.pathname })}
-               <ToastContainer />
+               <Toaster />
           </>
      );
 }

@@ -10,6 +10,7 @@ import { BrowserRouter } from "react-router-dom";
 import authReducer from "./store/reducer/authReducer.js";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme/theme.js";
+import ReduxThunk from "redux-thunk";
 
 const Store = configureStore(
      {
@@ -17,7 +18,7 @@ const Store = configureStore(
                user: authReducer,
           },
      },
-     // applyMiddleware(),
+     applyMiddleware(ReduxThunk),
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(

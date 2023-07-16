@@ -4,15 +4,16 @@ import { useNavigate } from "react-router";
 import Loader from "../components/Loader";
 import Topbar from "./Topbar";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Layout({ children }) {
      const [loading, setLoading] = useState(false);
      let navigate = useNavigate();
-     const [currentUser, setCurrentUser] = useState({});
+     const currentUser = useSelector((state) => state.user);
 
-     //  useMemo(() => {
-     //       getCurrentUser(setCurrentUser);
-     //  }, []);
+     // useMemo(() => {
+     //      getCurrentUser(setCurrentUser);
+     // }, []);
      useEffect(() => {
           // onAuthStateChanged(auth, (res) => {
           //      if (!res?.accessToken) {
@@ -30,7 +31,7 @@ export default function Layout({ children }) {
                <div
                     style={{
                          padding: "20px",
-                         maxWidth: "60vw",
+                         maxWidth: "70vw",
                          margin: "auto",
                          display: "flex",
                          flexDirection: "row",

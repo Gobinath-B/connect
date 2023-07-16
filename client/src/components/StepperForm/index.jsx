@@ -26,7 +26,6 @@ const steps = [
                     label: "First name",
                     autoComplete: "given-name",
                     variant: "standard",
-
                     type: "text",
                },
                {
@@ -58,7 +57,6 @@ const steps = [
                     label: "Phone Number",
                     autoComplete: "phone",
                     variant: "standard",
-
                     type: "tel",
                },
           ],
@@ -69,9 +67,7 @@ const steps = [
                {
                     id: "studentId",
                     label: "Student ID",
-                    autoComplete: "studentId",
                     variant: "standard",
-
                     type: "text",
                },
                {
@@ -152,22 +148,6 @@ const steps = [
                     type: "select",
                },
                {
-                    id: "currentJob",
-                    label: "Current Job",
-                    placeholder: "Eg: Software Engineer",
-                    variant: "standard",
-                    onChange: () => {},
-                    type: "text",
-               },
-               {
-                    id: "companyName",
-                    label: "Company Name",
-                    placeholder: "Eg: Google",
-                    variant: "standard",
-                    onChange: () => {},
-                    type: "text",
-               },
-               {
                     id: "lookingFor",
                     label: "Looking For",
                     options: [
@@ -203,6 +183,22 @@ const steps = [
                     variant: "standard",
                     onChange: () => {},
                     type: "select",
+               },
+               {
+                    id: "currentJob",
+                    label: "Current Job",
+                    placeholder: "Eg: Software Engineer",
+                    variant: "standard",
+                    onChange: () => {},
+                    type: "text",
+               },
+               {
+                    id: "companyName",
+                    label: "Company Name",
+                    placeholder: "Eg: Google",
+                    variant: "standard",
+                    onChange: () => {},
+                    type: "text",
                },
           ],
      },

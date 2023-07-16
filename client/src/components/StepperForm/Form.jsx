@@ -38,10 +38,9 @@ export default function Form({ data, credentials, setCredentials }) {
                                                             ...credentials,
                                                             [field.id]: e.target.value,
                                                        });
-                                                       console.log(field.id, "CREDENTIAL", credentials);
                                                   }}
+                                                  value={credentials[field.id]}
                                                   fullWidth
-                                                  autoComplete={field.autoComplete}
                                                   variant="outlined">
                                                   {field.options.map((option) => {
                                                        return <MenuItem value={option.value}>{option.name}</MenuItem>;
@@ -49,22 +48,26 @@ export default function Form({ data, credentials, setCredentials }) {
                                              </Select>
                                         </FormControl>
                                    ) : (
-                                        <TextField
-                                             required
-                                             id={field.name}
-                                             label={field.label}
-                                             onChange={(e) => {
-                                                  setCredentials({
-                                                       ...credentials,
-                                                       [field.id]: e.target.value,
-                                                  });
-                                                  console.log(field.id, "CREDENTIAL", credentials);
-                                             }}
-                                             fullWidth
-                                             autoComplete={field.autoComplete}
-                                             variant="outlined"
-                                             type={field.type}
-                                        />
+                                        <>
+                                             {credentials?.currentRole === "student" && (field?.id === "currentJob" || field.id === "companyName") ? null : (
+                                                  <TextField
+                                                       required
+                                                       id={field.id}
+                                                       label={field.label}
+                                                       value={credentials[field.id]}
+                                                       onChange={(e) => {
+                                                            setCredentials({
+                                                                 ...credentials,
+                                                                 [field.id]: e.target.value,
+                                                            });
+                                                            console.log(field.id, "CREDENTIAL", credentials);
+                                                       }}
+                                                       fullWidth
+                                                       variant="outlined"
+                                                       type={field.type}
+                                                  />
+                                             )}
+                                        </>
                                    )}
                               </Grid>
                          );

@@ -8,14 +8,19 @@ import { toast } from "react-toastify";
 import "./index.scss";
 import Loader from "../../components/Loader";
 import { Container, Paper, Typography } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../store/action/authAction";
 
 function LoginComponent({ handleLogin, credentails, setCredentials, navigate }) {
      return (
           <Container
                component="main"
                maxWidth="xs"
+               className="flex flex-col items-center justify-center h-[100vh]"
                sx={{ mb: 4 }}>
                <Paper
+                    elevation={6}
+                    className="flex flex-col items-center justify-center"
                     variant="outlined"
                     sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
                     <Typography
@@ -28,7 +33,7 @@ function LoginComponent({ handleLogin, credentails, setCredentials, navigate }) 
 
                     <p className="sub-heading">Stay updated on your professional world</p>
 
-                    <div className="auth-inputs">
+                    <div className="auth-inputs flex gap-2  flex-col mt-3">
                          <input
                               onChange={(event) => setCredentials({ ...credentails, email: event.target.value })}
                               type="email"
@@ -69,17 +74,29 @@ function LoginComponent({ handleLogin, credentails, setCredentials, navigate }) 
 export default function Login() {
      const [loading, setLoading] = useState(false);
      let navigate = useNavigate();
+     const dispatch = useDispatch();
      const [credentails, setCredentials] = useState({});
      const handleLogin = async () => {
-          try {
-               let res = await LoginAPI(credentails.email, credentails.password);
-               toast.success("Signed In to Connect!");
-               localStorage.setItem("userEmail", res.user.email);
-               navigate("/home");
-          } catch (err) {
-               console.log(err);
+          if (!credentails.email || !credentails.password) {
                toast.error("Please Check your Credentials");
+               return;
+          } else {
+               navigate("/home");
           }
+          // try {
+          //      const body = {
+          //           email: credentails.email,
+          //           password: credentails.password,
+          //      };
+          //      console.log("BODY", body);
+          //      const res = await dispatch(loginUser(body));
+          //      toast.success("Signed In to Connect!");
+          //      localStorage.setItem("userEmail", res.user.email);
+          //      navigate("/home");
+          // } catch (err) {
+          //      console.log(err);
+          //      toast.error("Please Check your Credentials");
+          // }
      };
      useEffect(() => {
           // onAuthStateChanged(auth, (res) => {

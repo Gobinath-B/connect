@@ -29,9 +29,9 @@ export default function LikeButton({ userId, postId, currentUser }) {
           // getComments(postId, setComments);
      }, [userId, postId]);
      return (
-          <div className="like-container">
-               <p>{likesCount} People Like this Post</p>
-               <div className="hr-line">
+          <div className="like-container h-[60px] flex justify-center">
+               {/* <p>{likesCount} People Like this Post</p> */}
+               <div className="hr-line mb-6">
                     <hr />
                </div>
                <div className="like-comment">

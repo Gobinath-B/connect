@@ -1,42 +1,43 @@
 /** @format */
 
-import { useState } from "react";
-import { useNavigate } from "react-router";
-import { styled } from "styled-components";
+import React from "react";
+import styled from "styled-components";
+import Button from "../../../components/Button";
 
-const LeftSidebar = (props) => {
+const Mentorship = ({ data }) => {
      return (
-          <Container>
-               <CommunityCard>
-                    <div className="mb-2">
-                         <span className="mx-2 my-2">{props.title}</span>
-                    </div>
-                    {props.data.map((item) => {
-                         return (
-                              <a
-                                   onClick={() => {
-                                        props.setSection(item.title);
-                                   }}>
-                                   <span>{item.title}</span>
-                              </a>
-                         );
-                    })}
-
+          <ArtCard>
+               <UserInfo>
+                    <CardBackground />
                     <a>
-                         <span>Discover more</span>
+                         <Photo src={data.image} />
+                         <Link>{data.name}</Link>
+                         <AddPhotoText>{data.title}</AddPhotoText>
                     </a>
-               </CommunityCard>
-          </Container>
+               </UserInfo>
+               <span className="flex flex-col items-center justify-center">
+                    <div className="mt-3 text-[10px]">{data.connections} mutual connects</div>
+                    <Button
+                         title={"Connect"}
+                         style={{
+                              width: "80%",
+                              backgroundColor: "#E2F0FE",
+                              color: "blue",
+                         }}
+                    />
+               </span>
+          </ArtCard>
      );
 };
 
 const Container = styled.div`
-     height: 80vh;
-     width: 40%;
+     grid-area: leftside;
 `;
 
 const ArtCard = styled.div`
      text-align: center;
+     height: 250px;
+     width: 150px;
      overflow: hidden;
      margin-bottom: 8px;
      background-color: #fff;
@@ -62,9 +63,9 @@ const CardBackground = styled.div`
      margin: -12px -12px 0;
 `;
 
-const Photo = styled.div`
+const Photo = styled.img`
      box-shadow: none;
-     background-image: url("/images/photo.svg");
+     object-fit: cover;
      width: 72px;
      height: 72px;
      box-sizing: border-box;
@@ -116,7 +117,6 @@ const Widget = styled.div`
                span {
                     font-size: 12px;
                     line-height: 1.333;
-                    color: rgba(0, 0, 0, 1);
                     &:first-child {
                          color: rgba(0, 0, 0, 0.6);
                     }
@@ -155,7 +155,6 @@ const Item = styled.a`
 const CommunityCard = styled(ArtCard)`
      padding: 8px 0 0;
      text-align: left;
-     height: 100%;
      display: flex;
      flex-direction: column;
      a {
@@ -173,15 +172,17 @@ const CommunityCard = styled(ArtCard)`
                justify-content: space-between;
           }
 
-          color: rgba(0, 0, 0, 0.6);
-          text-decoration: none;
+          &:last-child {
+               color: rgba(0, 0, 0, 0.6);
+               text-decoration: none;
 
-          border-top: 1px solid #d6cec2;
-          padding: 12px;
-          &:hover {
-               background-color: rgba(0, 0, 0, 0.08);
+               border-top: 1px solid #d6cec2;
+               padding: 12px;
+               &:hover {
+                    background-color: rgba(0, 0, 0, 0.08);
+               }
           }
      }
 `;
 
-export default LeftSidebar;
+export default Mentorship;
