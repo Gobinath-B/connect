@@ -6,12 +6,19 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-     firstName: String,
-     lastName: String,
+     companyName: String,
+     currentJob: String,
+     currentRole: String,
+     education: String,
      email: String,
+     firstName: String,
+     graduationYear: String,
+     lastName: String,
+     lookingFor: String,
+     organizationName: String,
      password: String,
      phone: String,
-     address: String,
+     studentId: String,
 });
 
 //create model
