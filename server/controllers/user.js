@@ -1,4 +1,8 @@
 /** @format */
+
+const User = require("../models/user");
+
+/** @format */
 const getUserById = async (req, res) => {
      const id = req.params.id;
      try {

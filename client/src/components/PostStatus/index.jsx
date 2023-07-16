@@ -39,17 +39,15 @@ export default function PostStatus({ currentUser }) {
      ]);
      const sendStatus = async () => {
           let object = {
-               user_id: user?.user_id,
-               name: String,
+               userID: user?.user_id,
+               userEmail: String,
                title: String,
-               post: String,
-               date: String,
+               postImage: String,
+               status: String,
                likes: Number,
-               comments: Number,
-               shares: Number,
-               image: String,
           };
-          await postStatus(object);
+          // const res;
+          // await postStatus(object);
           await setModalOpen(false);
           setIsEdit(false);
           await setStatus("");
