@@ -28,7 +28,7 @@ const startServer = async () => {
 startServer();
 
 app.get("/", (req, res) => {
-     res.send("Hello World!");
+     res.send("App is Working");
 });
 
 // Path: server\index.js
